@@ -2,11 +2,8 @@ package org.kod5.android;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -16,46 +13,46 @@ import android.widget.Toast;
 @SuppressLint({ "NewApi", "ShowToast" })
 public class MainActivity extends Activity {
 
-	//Spinner ierisine koyacaÛİmİz verileri tanİmlİyoruz.
-	private String[] iller={"ÜSTANBUL","ANKARA"};
-	private String[] ilceler0={"ADALAR","ARNAVUTK…Y","ATAŞEHÜR","AVCILAR","BAÚCILAR","BAH‚ELÜEVLER","BAKIRK…Y","BAŞAKŞEHÜR","BAYRAMPAŞA","BEŞÜKTAŞ","BEYLÜKD†Z†","BEYOÚLU","B†Y†K‚EKMECE","BEYKOZ","‚ATALCA","‚EKMEK…Y","ESENLER","ESENYURT","EY†P","FATÜH","GAZÜOSMANPAŞA","G†NG…REN","KADIK…Y","KAÚITHANE","KARTAL","K†‚†K‚EKMECE","MALTEPE","PENDÜK","SANCAKTEPE","SARIYER","SÜLÜVRÜ","SULTANBEYLÜ","SULTANGAZÜ","ŞÜLE","ŞÜŞLÜ","TUZLA","†SK†DAR","†MRANÜYE","ZEYTÜNBURNU"};
-	private String[] ilceler1={"AKYURT","ALTINDAÚ","AYAŞ","BALA","BEYPAZARI","‚AMLIDERE","‚ANKAYA","‚UBUK","ELMADAÚ","ETÜMESGUT","EVREN","G…LBAŞI","G†D†L","HAYMANA","KALECÜK","KAZAN","KE‚Ü…REN","KIZILCAHAMAM","MAMAK","NALLIHAN","POLATLI","PURSAKLAR","SÜNCAN","ŞEREFLÜKO‚HÜSAR","YENÜMAHALLE"};
+	//Spinner iÃ§erisine koyacaÄŸÄ±mÄ±z verileri tanÄ±mlÄ±yoruz.
+	private String[] iller={"Ä°STANBUL","ANKARA"};
+	private String[] ilceler0={"ADALAR","ARNAVUTKÃ–Y","ATAÅEHÄ°R","AVCILAR","BAÄŸCILAR","BAHÃ‡ELÄ°EVLER","BAKIRKÃ–Y","BAÅAKÅEHÄ°R","BAYRAMPAÅA","BEÅÄ°KTAÅ","BEYLÄ°KDÃœZÃœ","BEYOÄLU","BÃœYÃœKÃ‡EKMECE","BEYKOZ","Ã‡ATALCA","Ã‡EKMEKÃ–Y","ESENLER","ESENYURT","EYÃœP","FATÄ°H","GAZÄ°OSMANPAÅA","GÃœNGÃ–REN","KADIKÃ–Y","KAÄITHANE","KARTAL","KÃœÃ‡ÃœKÃ‡EKMECE","MALTEPE","PENDÄ°K","SANCAKTEPE","SARIYER","SÄ°LÄ°VRÄ°","SULTANBEYLÄ°","SULTANGAZÄ°","ÅÄ°LE","ÅÄ°ÅLÄ°","TUZLA","ÃœSKÃœDAR","ÃœMRANÄ°YE","ZEYTÄ°NBURNU"};
+	private String[] ilceler1={"AKYURT","ALTINDAÄ","AYAÅ","BALA","BEYPAZARI","Ã‡AMLIDERE","Ã‡ANKAYA","Ã‡UBUK","ELMADAÄ","ETÄ°MESGUT","EVREN","GÃ–LBAÅI","GÃœDÃœL","HAYMANA","KALECÄ°K","KAZAN","KEÃ‡Ä°Ã–REN","KIZILCAHAMAM","MAMAK","NALLIHAN","POLATLI","PURSAKLAR","SÄ°NCAN","ÅEREFLÄ°KOÃ‡HÄ°SAR","YENÄ°MAHALLE"};
 	
-	//Spinner'larİ ve Adapter'lerini tanİmlİyoruz.
+	//Spinner'larÄ± ve Adapter'lerini tanÄ±mlÄ±yoruz.
 	private Spinner spinnerIller;
 	private Spinner spinnerIlceler;
 	private ArrayAdapter<String> dataAdapterForIller; 
 	private ArrayAdapter<String> dataAdapterForIlceler;
 	
 	
-	@Override // Bu metod uygulama aİldİÛİnda alİßtİrİlan metod.
+	@Override // Bu metod uygulama aÃ§Ä±ldÄ±ÄŸÄ±nda Ã§alÄ±ÅŸtÄ±rÄ±lan metod.
 	protected void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		//xml kİsmİnda hazİrladİÛİmİz spinnerlarİ burda tanİmladİklarİmİzla eßleßtiriyoruz.
+		//xml kÄ±smÄ±nda hazÄ±rladÄ±ÄŸÄ±mÄŸÄ±z spinnerlarÄ± burda tanÄ±mladÄ±klarÄ±mÄ±zla eÅŸleÅŸtiriyoruz.
 		spinnerIller = (Spinner) findViewById(R.id.spinner1);
 		spinnerIlceler = (Spinner) findViewById(R.id.spinner2);
 		 
-        //Spinner'lar iin adapterleri hazİrlİyoruz. 
+        //Spinner'lar iÃ§in adapterleri hazÄ±rlÄ±yoruz. 
         dataAdapterForIller = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, iller);
         dataAdapterForIlceler = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,ilceler0);
         
-        //Listelenecek verilerin gšrŸnŸmŸnŸ belirliyoruz.
+        //Listelenecek verilerin gÃ¶rÃ¼nÃ¼mÃ¼nÃ¼ belirliyoruz.
         dataAdapterForIller.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dataAdapterForIlceler.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
  
-        //HazİrladİÛİmİz Adapter'leri Spinner'lara ekliyoruz.
+        //HazÄ±rladÄŸÄ±mÄ±z Adapter'leri Spinner'lara ekliyoruz.
         spinnerIller.setAdapter(dataAdapterForIller);
         spinnerIlceler.setAdapter(dataAdapterForIlceler);
         
-        // Listelerden bir eleman seildiÛinde yapİlacaklarİ tanİmlİyoruz.
+        // Listelerden bir eleman seÃ§ildiÄŸinde yapÄ±lacaklarÄ± tanÄ±mlÄ±yoruz.
 		spinnerIller.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				//Hangi il seilmißse onun ileleri adapter'e ekleniyor.
+				//Hangi il seÃ§ilmiÅŸse onun ilÃ§eleri adapter'e ekleniyor.
 				if(parent.getSelectedItem().toString().equals(iller[0])) 
 					dataAdapterForIlceler = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item,ilceler0);
 				else if(parent.getSelectedItem().toString().equals(iller[1]))
@@ -75,7 +72,7 @@ public class MainActivity extends Activity {
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View view,
 							int position, long id) {
-						//Seilen il ve ileyi ekranda gšsteriyoruz.
+						//SeÃ§ilen il ve ilÃ§eyi ekranda gÃ¶steriyoruz.
 						Toast.makeText(getBaseContext(), ""+spinnerIller.getSelectedItem().toString()+"\n"+parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
 					}
 
