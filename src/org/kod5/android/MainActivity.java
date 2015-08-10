@@ -1,6 +1,5 @@
 package org.kod5.android;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-@SuppressLint({ "NewApi", "ShowToast" })
 public class MainActivity extends Activity {
 
 	//Spinner içerisine koyacağımız verileri tanımlıyoruz.
@@ -76,11 +74,8 @@ public class MainActivity extends Activity {
 						Toast.makeText(getBaseContext(), ""+spinnerIller.getSelectedItem().toString()+"\n"+parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
 					}
 
-					@Override
 					public void onNothingSelected(AdapterView<?> parent) {
 					}
 				});
 	}
-
-	
 }
