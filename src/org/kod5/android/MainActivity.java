@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
     
+    
 
 	//Spinner içerisine koyacağımız verileri tanımlıyoruz.
 	private String[] iller={"İSTANBUL","ANKARA"};
